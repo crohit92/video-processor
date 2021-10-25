@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Tell me the names of all the persons whom you want to identify in a video stream.</h1>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btp-primary" (click)="addLabel()">+ Add Person</button>
+        </div>
+        <div class="col-12 my-2 d-flex" *ngFor="let labelControl of labelControls;let index = index">
+            <div class="form-group w-100">
+                <label>Enter person name who you want to identify</label>
+                <div class="input-group">
+                    <input [formControl]="labelControl" type="text" placeholder="Enter a name to identify the person" class="form-control">
+                    <div class="input-group-append">
+                        <button class="btn" (click)="removeAt(index)">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <button [disabled]="labelControls.length<=0" (click)="reset()" class="btn btn-warning mr-3">Reset</button>
+            <button [disabled]="labelControls.length<=0" class="btn btn-primary" (click)="continue()">Continue</button>
+        </div>
+    </div>
+</div>
