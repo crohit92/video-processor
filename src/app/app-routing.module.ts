@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IdentifiablesComponent } from './identifiables/identifiables.component';
+import { PredictComponent } from './predict/predict.component';
 import { TrainingComponent } from './training/training.component';
 
 const routes: Routes = [
   {
-    path:'identifiables',
+    path: 'identifiables',
     component: IdentifiablesComponent
   },
   {
-    path:'training',
+    path: 'training',
     component: TrainingComponent
   },
   {
-    path:'',
-    redirectTo:'/identifiables',
-    pathMatch:'full'
+    path: 'predict',
+    component: PredictComponent
+  },
+  {
+    path: '',
+    redirectTo: '/identifiables',
+    pathMatch: 'full'
   }
 ];
 

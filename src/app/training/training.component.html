@@ -1,7 +1,21 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Select a person from the below list and capture images</h1>
-        </div>
+  <h1>Select a person from the below list and capture images</h1>
+  <div class="d-flex">
+    <div class="label border px-3 py-2 m-2 btn" (click)="selectedLabel = label"
+      [ngClass]="{'btn-primary': label === selectedLabel}" *ngFor="let label of labels">
+      {{label}} <div class="badge badge-light">{{labelImages[label]}}</div>
     </div>
+  </div>
+  <div class="d-flex mt-3" *ngIf="selectedLabel">
+    <p><a class="text-primary pointer" (click)="captureImage()">Click here</a>, when you are ready to capture
+      {{selectedLabel}}'s image
+    </p>
+  </div>
+  <div class="d-flex">
+    <video #videoEl autoplay muted style="width:250px; height:160px; transform: rotateY(180deg);"></video>
+    <canvas #canvasEl style="width:250px; height:160px;  transform: rotateY(180deg);"></canvas>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-primary" (click)="startPredicting()">Predict</button>
+  </div>
 </div>
